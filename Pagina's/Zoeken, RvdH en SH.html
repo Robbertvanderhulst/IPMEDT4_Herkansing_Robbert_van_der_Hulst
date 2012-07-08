@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!—RvdH en SH--> 
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<!—Stylesheets worden toegevoegd-->
+<link rel="stylesheet" href="css/jquery.mobile-1.1.0.css" />
+<link rel="stylesheet" href="css/wieodr.css" />
+<link rel="stylesheet" href="css/jquery.mobile.simpledialog.min.css" />
+<!--/stylesheets-->
+</head>
+<body>
+	<!—De bovenbalk met knoppen worden toegevoegd-->
+	<div data-theme="a" data-role="header" data-position="fixed">
+		<h3>Search</h3>
+		<div data-role="navbar" data-iconpos="left">
+			<ul>
+				<!—De zoekknop wordt toegevoegd-->
+				<li><a href="#" data-icon="search" class="ui-btn-active">
+						Zoeken </a>
+				</li>
+				<!--/zoeken-->
+				<!--home knop-->
+				<li><a href="home.html" data-icon="home"> Home </a>
+				</li>
+				<!--/home-->
+				<!--alles knop wordt toegevoegd-->
+				<li><a href="alles.html"> Alles </a>
+				</li>
+				<!--/alles-->
+			</ul>
+		</div>
+	</div>
+	<!--/bovenbalk-->
+	<!--content vak-->
+	<div data-role="content">
+	<!—SH--> 
+	<form action="alles.html" method=get>
+		<div data-role="fieldcontain">
+			<fieldset data-role="controlgroup">
+				<label for="alles">Zoeken op alle termen</label> <input id="alles"
+					placeholder="Zoeken op alle termen..." value="" type="text" />
+			</fieldset>
+		</div>
+		<div data-role="fieldcontain">
+			<fieldset data-role="controlgroup">
+				<label for="titel">Zoeken op titel</label> <input id="titel"
+					placeholder="Zoeken op titel..." value="" type="text" />
+			</fieldset>
+		</div>
+		<div data-role="fieldcontain">
+			<fieldset data-role="controlgroup">
+				<label for="artiest">Zoeken op artiest</label> <input id="artiest"
+					placeholder="Zoeken op artiest..." value="" type="text" />
+			</fieldset>
+		</div>
+		<div data-role="fieldcontain">
+<!—SH-->
+			<label for="datum"> Vanaf: </label> <select name="datum"
+				id="datum" data-mini="true">
+					<option value="">24 April</option>
+					<option value="">23 April</option>
+					<option value="">22 April</option>
+					<option value="">21 April</option>
+					<option value="">20 April</option>
+					<option value="">19 April</option>
+					<option value="">18 April</option>
+					<option value="">17 April</option>
+					<option value="">16 April</option>
+					<option value="">15 April</option>
+			</select>
+		</div>
+<!—SH-->
+		<div data-role="fieldcontain">
+			<label for="tijd"> Om: </label> <select name="tijd"
+				id="tijd">
+				<option value="0">0:00</option>
+				<option value="1">1:00</option>
+				<option value="2">2:00</option>
+				<option value="3">3:00</option>
+				<option value="4">4:00</option>
+				<option value="5">5:00</option>
+				<option value="6">6:00</option>
+				<option value="7">7:00</option>
+				<option value="8">8:00</option>
+				<option value="9">9:00</option>
+				<option value="10">10:00</option>
+				<option value="11">11:00</option>
+				<option value="12">12:00</option>
+				<option value="13">13:00</option>
+				<option value="14">14:00</option>
+				<option value="15">15:00</option>
+				<option value="16">16:00</option>
+				<option value="17">17:00</option>
+				<option value="18">18:00</option>
+				<option value="19">19:00</option>
+				<option value="20">20:00</option>
+				<option value="21">21:00</option>
+				<option value="22">22:00</option>
+				<option value="23">23:00</option>
+			</select>
+		</div>
+
+
+
+<!—SH-->
+		<div data-role="fieldcontain">
+			<label for="radio"> Op radio: </label> <select
+				name="radio" id="radio">
+				<option value="538">538</option>
+				<option value="3fm">3FM</option>
+				<option value="slam!fm">Slam!FM</option>
+				<option value="arrow">Arrow</option>
+				<option value="skyradio">SkyRadio</option>
+				<option value="veronica">Veronica</option>
+				<option value="qmusic">Q Music</option>
+				<option value="100nl">100%NL</option>				
+			</select>
+		</div>
+		<input type="submit" data-icon="search" data-iconpos="left"
+			value="Zoeken" />	
+	</form>
+	<!--RvdH-->
+	</div>
+	<!--/content-->
+	<!—De footer met bijbehorende knoppen wordt toegevoegd-->
+	<div data-theme="a" data-role="footer" data-position="fixed"
+		style="height: 50px;">
+		<div data-role="navbar" data-iconpos="top" style="height: 50px;">
+			<ul>
+				<!—De refresh knop wordt toegevoegd-->
+				<li><a href="#" data-icon="refresh"
+				 style="height: 50px;" id="refreshButton">Refresh</a>
+				</li>
+<!—RvdH-->
+				<!--/refresh-->
+				<!—De instellingen knop wordt toegevoegd-->
+				<li><a href="instellingen.html" data-icon="gear"
+				 style="height: 50px;"> Instellingen </a>
+				</li>
+				<!--/instellingen-->
+				<!--afsluit knop-->
+				<li><a href="#" id="closeDialog" data-icon="delete"
+				 style="height: 50px;">Afsluiten</a></li>
+				<!--/afsluit-->
+			</ul>
+		</div>
+	</div>
+	<!--/footer-->
+</body>
+</html>

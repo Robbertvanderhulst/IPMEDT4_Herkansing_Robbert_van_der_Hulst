@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!—RvdH--> 
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<!—SH--> 
+<!—De stylesheets worden toegevoegd-->
+<link rel="stylesheet" href="css/jquery.mobile-1.1.0.css" />
+<link rel="stylesheet" href="css/wieodr.css" />
+<link rel="stylesheet" href="css/jquery.mobile.simpledialog.min.css" />
+<!--/stylesheets-->
+<!—SH--> 
+<!--scripts invoegen-->
+<script src="js/jquery-1.7.2.js" type="text/javascript">
+        </script>
+<script src="js/jquery.mobile-1.1.0.js" type="text/javascript">
+        </script>
+<script src="js/jquery.mobile.simpledialog2.min.js" type="text/javascript">
+</script>
+<script type="text/javascript" charset="utf-8" src="js/wormhole.js"></script>
+<!--scripts-->
+</head>
+
+
+<body onload="initialise()"><!--Bij opstart functie initialise aanroepen-->
+<script type="text/javascript">
+<!—SH--> 
+//Functie om code te draaien bij opstart
+function initialise(){
+	//Bij indrukken van back-knop, functie close aanroepen
+	document.addEventListener("backbutton", close, true);
+
+	var currentPage = "alles";	//houdt huidige pagina bij
+
+	//Swipe navigatie code
+	$('body').live('swipeleft swiperight',function(event){
+		//Afhandelen aan de hand van de swipe richting
+		if (event.type == "swiperight") {
+			if(currentPage=="home")
+			{
+				//Als huidige pagina 'home' is, naar 'zoeken' gaan
+				currentPage="zoeken";
+				$.mobile.changePage("zoeken.html",{transition: "slidefade", reverse:true});
+			}
+			else if(currentPage=="alles")
+			{
+				//Als huidige pagina 'alles' is, naar 'home' gaan
+				currentPage="home";
+				$.mobile.changePage("home.html",{transition: "slidefade", reverse:true});
+			}
+		}
+		if (event.type == "swipeleft") {
+			if(currentPage=="zoeken")
+			{
+				//Als huidige pagina 'zoeken' is, naar 'home' gaan
+				currentPage="home";
+				$.mobile.changePage("home.html",{transition: "slidefade"});
+			}
+			else if(currentPage=="home")
+			{
+				//Als huidige pagina 'home' is, naar 'alles' gaan
+				currentPage="alles";
+				$.mobile.changePage("alles.html",{transition: "slidefade"});
+			}
+		}
+		});
+	
+	//Handel af wat er gebeurt als close 'knop' wordt gedrukt,
+	//Roept close functie op	
+	$(document).delegate('#closeDialog', 'click', function() {
+		  close();
+		})
+	
+	//Handel af wat er gebeurt als close 'refresh' wordt gedrukt,
+	//Roept getData functie(van backend) op
+	$(document).delegate('#refreshButton', 'click', function() {
+		  getData();
+		});
+	getData();
+}
+
+//Afsluit functie
+function close()
+{
+<!—RvdH--> 
+	//Maakt een dialoog venster met de knoppen 'afsluiten' en 'annuleren'
+	$(document).simpledialog2({
+		mode: 'button',
+	    headerText: 'Aflsuiten',
+	    headerClose: false,
+	    buttonPrompt: 'Programma afsluiten?',
+	    buttons : {
+		//Bij indrukken van knop 'afsluiten', mosync bridge functie 'close' aanroepen
+	      'Afsluiten': {
+	        click: function () { 
+	        mosync.bridge.send(["close"]);			          
+	        }
+	      },
+	      'Annuleren': {
+	    	click: function () { 
+	        		          
+	        },
+	      }
+	    }
+	});
+}
+</script>
+<!—RvdH--> 
+	<!—Bovenbalk met de knoppen wordt aangemaakt-->
+	<div data-theme="a" data-role="header">
+		<h3>Home</h3>
+		<div data-role="navbar" data-iconpos="left">
+			<ul>
+				<li><a href="zoeken.html" data-direction="reverse"
+					data-icon="search"> Zoeken </a>
+				</li>
+				<li><a href="#" data-icon="home" class="ui-btn-active">
+						Home </a>
+				</li>
+				<li><a href="alles.html"> Alles </a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!--/bovenbalk-->
+	<!--content vak-->
+	<div data-role="content">
+		<ul data-role="listview" data-divider-theme="a">
+			<li data-role="list-divider"><h3>Welkom</h3></li>
+			<li>
+
+
+				Heb jij net een leuke nummer op de radio gehoord, 
+				maar de titel ervan gemist?	Niet genoeg tijd gehad 
+				om Shazam of Soundhoud erbij te pakken?
+				Gebruik deze app om de laatst afgespeelde nummers 
+				op de grootste radiozenders op te vragen. Swipe naar 
+				links om een overzicht van de laatst afgespeelde 
+				nummers te bekijken, swipe naar rechts om op verschillende 
+				zoektermen een bepaalde nummer, artiest, radio of tijdstip 
+				te vinden.
+</li>		</ul></div>
+	<div data-theme="a" data-role="footer" data-position="fixed"
+		style="height: 50px;">
+		<div data-role="navbar" data-iconpos="top" style="height: 50px;">
+			<ul>
+				<li><a href="#" data-icon="refresh"
+				 style="height: 50px;">Refresh</a>
+				</li>
+				<li><a href="instellingen.html" data-icon="gear"
+				 style="height: 50px;">Instellingen </a>
+				</li>
+				<li><a href="#" id="closeDialog" data-icon="delete"
+				 style="height: 50px;">Afsluiten</a></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

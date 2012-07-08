@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!—RvdH--> 
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+</head>
+<body>
+	<!—Hieronder wordt de bovenbalk met knoppen aangemaakt->
+	<div data-theme="a" data-role="header" data-position="fixed">
+		<h3>Alles</h3>
+		<div data-role="navbar" data-iconpos="left">
+			<ul>	
+
+
+				<!—De knop om liedjes te zoeken wordt aangemaakt-->
+				<li><a href="zoeken.html" data-direction="reverse"
+					data-icon="search"> Zoeken </a></li>
+				<!--/zoeken-->
+				<!—De knop om terug naar home te gaan wordt aangemaakt-->
+				<li><a href="home.html" data-direction="reverse"
+					data-icon="home"> Home </a></li>
+				<!--/home-->
+				<!—De knop om alle radiostations weer te geven wordt aangemaakt-->
+				<li><a href="#" class="ui-btn-active"> Alles </a></li>
+				<!--/alles-->
+			</ul>
+		</div>
+	</div>
+	<!--/bovenbalk-->
+	<!--content vak-->
+	<div data-role="content" id="content">
+		
+	</div>
+	<!--/content-->
+	<!—De footer met de verschillende knoppen wordt aangemaakt-->
+	<div data-theme="a" data-role="footer" data-position="fixed"
+		style="height: 50px;">
+		<div data-role="navbar" data-iconpos="top" style="height: 50px;">
+			<ul>
+
+
+
+				<!—De refreshknop om het geheel opnieuw te tonen wordt aangemaakt-->
+				<li><a href="#" data-icon="refresh"
+				 style="height: 50px;" id="refreshButton">Refresh</a>
+				</li>
+				<!--/refresh-->
+				<!—De knop om alle instellingen te weergeven wordt aangemaakt-->
+				<li><a href="instellingen.html" data-icon="gear"
+				 style="height: 50px;"> Instellingen </a>
+				</li>
+				<!--/instellingen-->
+				<!--afsluit knop-->
+				<li><a href="#" id="closeDialog" data-icon="delete"
+				 style="height: 50px;">Afsluiten</a></li>
+				<!--/afsluit-->
+			</ul>
+		</div>
+	</div>
+	<!--/footer-->
+</body>
+</html>
